@@ -11,10 +11,10 @@ def main():
 
     df = pd.read_excel('Tabela_sistema_BioInstitnto.xlsx')
 
-    
     if option == 'Catalogo':
         st.title("Produtos e Preços de Revenda")
-        st.markdown("Clique aqui para acessar o catálogo de produtos")
+        txt1 = '<a href="https://www.bioinstinto.com.br/catalogo-bio-instinto/" target="_blank">Clique aqui para acessar o catálogo de produtos</a>'
+        st.markdown(txt1, unsafe_allow_html=True)
 
         # Calcula o preço de revenda para cada produto
         df['Preço de Revenda'] = df.iloc[:, 1] + df.iloc[:, 1] * 0.51
