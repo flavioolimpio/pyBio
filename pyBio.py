@@ -24,7 +24,8 @@ def main():
         for i in range(len(df)):
             st.subheader(f'Produto: {df.iloc[i, 0]}')
             quantity = st.number_input(f'Insira a quantidade do produto {df.iloc[i, 0]}', min_value=0, value=0, key=str(i))
-            price = st.number_input(f'Insira o preço de venda do produto {df.iloc[i, 0]}', min_value=0.0, value=0.0, key=str(i)+'price')
+            #price = st.number_input(f'Insira o preço de venda do produto {df.iloc[i, 0]}', min_value=0.0, value=0.0, key=str(i)+'price')
+            price = df['Preço'] * 0.5
             df.loc[i, 'Qntd'] = quantity
             df.loc[i, 'Preço da Venda'] = price
             df.loc[i, 'Preço da venda * Qntd'] = quantity * price
