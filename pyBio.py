@@ -28,6 +28,9 @@ def main():
             df.loc[i, 'Preço da Venda'] = price
             df.loc[i, 'Preço da venda * Qntd'] = quantity * price
 
+            # Exibe o valor de revenda calculado
+            st.text(f'Preço de revenda do produto {df.iloc[i, 0]}: R$ {price:.2f}')
+
         if st.button('Processar Planilha de Revenda'):
             df = df[df['Preço da venda * Qntd'] > 0]  # Exclui produtos com valor zero
             result = calculate_total(df)
@@ -37,6 +40,7 @@ def main():
 
             result.to_excel('nova_planilha_revenda.xlsx', index=False)
             st.success('Nova planilha de Excel de revenda criada com sucesso!')
+
 
 
     elif option == 'Compra':
